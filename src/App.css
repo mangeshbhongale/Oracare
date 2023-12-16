@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,500&display=swap");
+
+* {
+  font-family: "Poppins";
+}
+.nav-items {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+}
+/* @keyframes slowShake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+} */
+
+.doc-image {
+  animation: slowShake 2s ease-in-out infinite;
+}
+.service-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+  padding: 30px; /* Reduced padding for mobile */
+  gap: 20px; /* Added gap for spacing between items */
+  justify-content: center;
+  align-items: center;
+}
+
+.servicebox {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Reduced gap */
+  width: 100%; /* Full width for responsiveness */
+  max-width: 300px; /* Max width to control size on larger screens */
+  margin: auto; /* Centers the box in the grid cell */
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.servicebox h4 {
+  position: relative;
+  font-weight: 600;
+  overflow: hidden; /* Ensures the underline doesn't extend beyond the text */
+}
+
+.servicebox h4::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px; /* Thickness of underline */
+  bottom: 0;
+  left: 0;
+  background-color: currentColor; /* Use the text color for the underline */
+  transform: scaleX(0);
+  transform-origin: bottom left; /* Starts the animation from the left */
+  transition: transform 0.5s ease-in-out; /* Adjusts the timing of the animation */
+}
+
+.servicebox:hover h4::after {
+  transform: scaleX(1); /* Scales to full width on hover */
+}
+
+.servicebox p {
+  color: #808080;
+}
+
+.img-con {
+  position: relative; /* Needed for absolute positioning of pseudo-elements */
+  border: 2px solid black; /* Initial transparent border */
+  border-radius: 50%;
+  padding: 2px;
+  height: 120px;
+  width: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Ensures the fill doesn't extend beyond the border */
+  background-clip: padding-box; /* Prevents background from bleeding into the border */
+}
+
+.img-con img {
+  height: 80px;
+  width: 80px;
+  /* Add any additional styles for the image */
+}
+
+.img-con::before {
+  content: "";
+  position: absolute;
+  top: -3px; /* Adjust for the border thickness */
+  left: -3px; /* Adjust for the border thickness */
+  right: -3px; /* Adjust for the border thickness */
+  bottom: -3px; /* Adjust for the border thickness */
+  border: 3px solid red;
+  border-radius: 50%; /* Maintains the circular shape */
+  transform: scale(0);
+  transition: transform 0.6s ease-in-out;
+  z-index: -1; /* Ensures the pseudo-element is behind the content */
+}
+
+.servicebox:hover .img-con::before {
+  transform: scale(1); /* Scales to fill the area on hover */
+}
+
+.servicebox:hover .img-con {
+  border: 2px solid red; /* Change to red border on hover */
+}
+
+.slick-arrow {
+  display: none !important;
+}
+
+
